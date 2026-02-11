@@ -6,6 +6,23 @@ Class {
 }
 
 { #category : 'tests' }
+McpResourceTemplateTest >> testAsDictionary [
+
+	| template dict |
+	template := McpResourceTemplate
+		            uriTemplate: 'pharo://class/{className}'
+		            name: 'Class Details'
+		            description: 'Get class details'
+		            mimeType: 'application/json'
+		            handler: [ :p | {  } ].
+	dict := template asDictionary.
+	self assert: (dict at: 'uriTemplate') equals: 'pharo://class/{className}'.
+	self assert: (dict at: 'name') equals: 'Class Details'.
+	self assert: (dict at: 'description') equals: 'Get class details'.
+	self assert: (dict at: 'mimeType') equals: 'application/json'
+]
+
+{ #category : 'tests' }
 McpResourceTemplateTest >> testCreateWithAllFields [
 
 	| template |
@@ -99,4 +116,32 @@ McpResourceTemplateTest >> testReadWithUri [
 	contents := template readWithUri: 'pharo://class/SmallInteger'.
 	self assert: contents size equals: 1.
 	self assert: contents first text equals: 'Class: SmallInteger'
+]
+
+{ #category : 'tests' }
+McpResourceTemplateTest >> testReadWithUriHandlerError [
+
+	| template contents |
+	template := McpResourceTemplate
+		            uriTemplate: 'pharo://class/{className}'
+		            name: 'Class'
+		            description: 'Get class'
+		            handler: [ :params | self error: 'Handler failure' ].
+	contents := template readWithUri: 'pharo://class/Object'.
+	self assert: contents size equals: 1.
+	self assert: (contents first text includesSubstring: 'Handler failure')
+]
+
+{ #category : 'tests' }
+McpResourceTemplateTest >> testReadWithUriNoMatch [
+
+	| template contents |
+	template := McpResourceTemplate
+		            uriTemplate: 'pharo://class/{className}'
+		            name: 'Class'
+		            description: 'Get class'
+		            handler: [ :params | { MCPContentItem text: 'ok' } ].
+	contents := template readWithUri: 'pharo://wrong/path/here'.
+	self assert: contents size equals: 1.
+	self assert: (contents first text includesSubstring: 'does not match')
 ]
