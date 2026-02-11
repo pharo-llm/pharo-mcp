@@ -39,3 +39,45 @@ McpToolResult class >> successText: aString [
 
 	^ self success: { MCPContentItem text: aString }
 ]
+
+{ #category : 'converting' }
+McpToolResult >> asDictionary [
+
+	| dict |
+	dict := OrderedDictionary new.
+	dict at: 'content' put: (content collect: [ :each | each asDictionary ]).
+	isError ifTrue: [ dict at: 'isError' put: true ].
+	^ dict
+]
+
+{ #category : 'initialization' }
+McpToolResult >> content [
+
+	^ content
+]
+
+{ #category : 'initialization' }
+McpToolResult >> content: anObject [
+
+	content := anObject
+]
+
+{ #category : 'initialization' }
+McpToolResult >> initialize [
+
+	super initialize.
+	content := #(  ).
+	isError := false
+]
+
+{ #category : 'initialization' }
+McpToolResult >> isError [
+
+	^ isError
+]
+
+{ #category : 'initialization' }
+McpToolResult >> isError: anObject [
+
+	isError := anObject
+]
