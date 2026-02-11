@@ -1,6 +1,6 @@
 Class {
 	#name : 'McpJsonRpcError',
-	#superclass : 'Object',
+	#superclass : 'MCPJSONRPCMessage',
 	#category : 'LLM-Pharo-MCP-JSON',
 	#package : 'LLM-Pharo-MCP',
 	#tag : 'JSON'

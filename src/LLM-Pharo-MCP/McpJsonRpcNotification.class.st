@@ -27,7 +27,7 @@ McpJsonRpcNotification class >> method: aMethod params: aDict [
 		  yourself
 ]
 
-{ #category : 'accessing' }
+{ #category : 'converting' }
 McpJsonRpcNotification >> asDictionary [
 
 	| dict |
@@ -38,7 +38,7 @@ McpJsonRpcNotification >> asDictionary [
 	^ dict
 ]
 
-{ #category : 'accessing' }
+{ #category : 'testing' }
 McpJsonRpcNotification >> isNotification [
 
 	^ true
