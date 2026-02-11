@@ -28,7 +28,42 @@ McpJsonRpcNotification class >> method: aMethod params: aDict [
 ]
 
 { #category : 'accessing' }
+McpJsonRpcNotification >> asDictionary [
+
+	| dict |
+	dict := OrderedDictionary new.
+	dict at: 'jsonrpc' put: self jsonrpc.
+	dict at: 'method' put: method.
+	params ifNotNil: [ dict at: 'params' put: params ].
+	^ dict
+]
+
+{ #category : 'accessing' }
+McpJsonRpcNotification >> isNotification [
+
+	^ true
+]
+
+{ #category : 'accessing' }
 McpJsonRpcNotification >> method [
 
 	^ method
+]
+
+{ #category : 'accessing' }
+McpJsonRpcNotification >> method: anObject [
+
+	method := anObject
+]
+
+{ #category : 'accessing' }
+McpJsonRpcNotification >> params [
+
+	^ params
+]
+
+{ #category : 'accessing' }
+McpJsonRpcNotification >> params: anObject [
+
+	params := anObject
 ]
