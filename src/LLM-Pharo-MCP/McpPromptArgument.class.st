@@ -34,8 +34,55 @@ McpPromptArgument class >> required: aName description: aDescription [
 	^ self name: aName description: aDescription required: true
 ]
 
+{ #category : 'converting' }
+McpPromptArgument >> asDictionary [
+
+	| dict |
+	dict := OrderedDictionary new.
+	dict at: 'name' put: name.
+	description ifNotNil: [ dict at: 'description' put: description ].
+	dict at: 'required' put: required.
+	^ dict
+]
+
+{ #category : 'accessing' }
+McpPromptArgument >> description [
+
+	^ description
+]
+
+{ #category : 'accessing' }
+McpPromptArgument >> description: anObject [
+
+	description := anObject
+]
+
+{ #category : 'testing' }
+McpPromptArgument >> isRequired [
+
+	^ required
+]
+
 { #category : 'accessing' }
 McpPromptArgument >> name [
 
 	^ name
+]
+
+{ #category : 'accessing' }
+McpPromptArgument >> name: anObject [
+
+	name := anObject
+]
+
+{ #category : 'accessing' }
+McpPromptArgument >> required [
+
+	^ required
+]
+
+{ #category : 'accessing' }
+McpPromptArgument >> required: anObject [
+
+	required := anObject
 ]
