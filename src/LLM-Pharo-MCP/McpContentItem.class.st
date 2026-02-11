@@ -1,5 +1,5 @@
 Class {
-	#name : 'McpContentItem',
+	#name : 'MCPContentItem',
 	#superclass : 'Object',
 	#instVars : [
 		'type',
@@ -8,12 +8,13 @@ Class {
 		'data',
 		'uri'
 	],
-	#category : 'LLM-Pharo-MCP',
-	#package : 'LLM-Pharo-MCP'
+	#category : 'LLM-Pharo-MCP-Core',
+	#package : 'LLM-Pharo-MCP',
+	#tag : 'Core'
 }
 
 { #category : 'accessing' }
-McpContentItem class >> image: base64Data mimeType: aMimeType [
+MCPContentItem class >> image: base64Data mimeType: aMimeType [
 
 	^ self new
 		  type: 'image';
@@ -23,7 +24,7 @@ McpContentItem class >> image: base64Data mimeType: aMimeType [
 ]
 
 { #category : 'accessing' }
-McpContentItem class >> resource: aUri text: aString mimeType: aMimeType [
+MCPContentItem class >> resource: aUri text: aString mimeType: aMimeType [
 
 	^ self new
 		  type: 'resource';
@@ -34,7 +35,7 @@ McpContentItem class >> resource: aUri text: aString mimeType: aMimeType [
 ]
 
 { #category : 'accessing' }
-McpContentItem class >> text: aString [
+MCPContentItem class >> text: aString [
 
 	^ self new
 		  type: 'text';
@@ -43,43 +44,99 @@ McpContentItem class >> text: aString [
 ]
 
 { #category : 'accessing' }
-McpContentItem >> data [
+MCPContentItem >> asDictionary [
+
+	| dict |
+	dict := OrderedDictionary new.
+	dict at: 'type' put: type.
+	self isText ifTrue: [ dict at: 'text' put: text ].
+	self isImage ifTrue: [
+		dict at: 'data' put: data.
+		dict at: 'mimeType' put: mimeType ].
+	self isResource ifTrue: [
+		| resource |
+		resource := OrderedDictionary new.
+		resource at: 'uri' put: uri.
+		text ifNotNil: [ resource at: 'text' put: text ].
+		mimeType ifNotNil: [ resource at: 'mimeType' put: mimeType ].
+		dict at: 'resource' put: resource ].
+	^ dict
+]
+
+{ #category : 'accessing' }
+MCPContentItem >> data [
 
 	^ data
 ]
 
 { #category : 'accessing' }
-McpContentItem >> mimeType [
+MCPContentItem >> data: anObject [
+
+	data := anObject
+]
+
+{ #category : 'accessing' }
+MCPContentItem >> isImage [
+
+	^ type = 'image'
+]
+
+{ #category : 'accessing' }
+MCPContentItem >> isResource [
+
+	^ type = 'resource'
+]
+
+{ #category : 'accessing' }
+MCPContentItem >> isText [
+
+	^ type = 'text'
+]
+
+{ #category : 'accessing' }
+MCPContentItem >> mimeType [
 
 	^ mimeType
 ]
 
 { #category : 'accessing' }
-McpContentItem >> mimeType: anObject [
+MCPContentItem >> mimeType: anObject [
 
 	mimeType := anObject
 ]
 
 { #category : 'accessing' }
-McpContentItem >> text [
+MCPContentItem >> text [
 
 	^ text
 ]
 
 { #category : 'accessing' }
-McpContentItem >> text: anObject [
+MCPContentItem >> text: anObject [
 
 	text := anObject
 ]
 
 { #category : 'accessing' }
-McpContentItem >> type [
+MCPContentItem >> type [
 
 	^ type
 ]
 
 { #category : 'accessing' }
-McpContentItem >> type: anObject [
+MCPContentItem >> type: anObject [
 
 	type := anObject
+]
+
+{ #category : 'accessing' }
+MCPContentItem >> uri [
+
+	^ uri
+]
+
+{ #category : 'accessing' }
+MCPContentItem >> uri: anObject [
+
+	uri := anObject
 ]

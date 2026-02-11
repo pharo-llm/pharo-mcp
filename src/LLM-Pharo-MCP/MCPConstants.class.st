@@ -1,6 +1,6 @@
 Class {
 	#name : 'MCPConstants',
-	#superclass : 'Object',
+	#superclass : 'SharedPool',
 	#classInstVars : [
 		'errorCodeInternalError',
 		'errorCodeInvalidParams',
@@ -11,8 +11,9 @@ Class {
 		'mcpServerName',
 		'mcpServerVersion'
 	],
-	#category : 'LLM-Pharo-MCP',
-	#package : 'LLM-Pharo-MCP'
+	#category : 'LLM-Pharo-MCP-Core',
+	#package : 'LLM-Pharo-MCP',
+	#tag : 'Core'
 }
 
 { #category : 'class initialization' }
