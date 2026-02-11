@@ -16,84 +16,26 @@ LLM-Pharo-MCP implements the [Model Context Protocol](https://modelcontextprotoc
 - Pharo 14 (64-bit)
 - macOS, Linux, Windows
 
-## Quick Start
-
-### 1. Create a Server
-
-```smalltalk
-server := McpServer name: 'my-pharo-mcp' version: '1.0.0'.
-```
-
-### 2. Register Tools
-
-```smalltalk
-server addTool: (McpTool
-  name: 'evaluate'
-  description: 'Evaluate a Pharo expression and return the result'
-  inputSchema: (McpSchema
-    object: { 'expression' -> (McpSchema string: 'Pharo expression to evaluate') }
-    required: #( 'expression' ))
-  handler: [ :args |
-    | result |
-    result := Compiler evaluate: (args at: 'expression').
-    McpToolResult successText: result printString ]).
-```
-
-### 3. Register Resources
-
-```smalltalk
-server addResource: (McpResource
-  uri: 'pharo://system/version'
-  name: 'System Version'
-  description: 'Current Pharo system version'
-  mimeType: 'text/plain'
-  handler: [ { McpContentItem text: SystemVersion current versionString } ]).
-```
-
-### 4. Register Prompts
-
-```smalltalk
-server addPrompt: (McpPrompt
-  name: 'review-class'
-  description: 'Generate a code review for a Pharo class'
-  arguments: { McpPromptArgument required: 'className' description: 'Name of the class to review' }
-  handler: [ :args |
-    Dictionary new
-      at: 'description' put: 'Code review for ' , (args at: 'className');
-      at: 'messages' put: {
-        (McpPromptMessage user: 'Please review the class ' , (args at: 'className') , ' in this Pharo image.') asDictionary };
-      yourself ]).
-```
-
-### 5. Connect Transport and Start
-
-```smalltalk
-transport := McpStdioTransport stdin: Stdio stdin stdout: Stdio stdout.
-server transport: transport.
-server start.
-```
-
 ## Documentation
 
 | Document | Description |
 |----------|-------------|
-| [Architecture](docs/architecture.md) | System architecture and design decisions |
-| [API Reference](docs/api-reference.md) | Complete class and method reference |
-| [Protocol Guide](docs/protocol-guide.md) | MCP protocol details and message formats |
-| [Tools Guide](docs/tools-guide.md) | How to create and register tools |
-| [Resources Guide](docs/resources-guide.md) | How to expose resources and resource templates |
-| [Prompts Guide](docs/prompts-guide.md) | How to define and use prompts |
-| [Transport Guide](docs/transport-guide.md) | Transport layer configuration |
-| [Testing Guide](docs/testing-guide.md) | How to test your MCP server and extensions |
+| [Quick Start](quick-start.md) | System architecture and design decisions |
+| [Architecture](architecture.md) | System architecture and design decisions |
+| [API Reference](api-reference.md) | Complete class and method reference |
+| [Protocol Guide](protocol-guide.md) | MCP protocol details and message formats |
+| [Tools Guide](tools-guide.md) | How to create and register tools |
+| [Resources Guide](resources-guide.md) | How to expose resources and resource templates |
+| [Prompts Guide](prompts-guide.md) | How to define and use prompts |
+| [Transport Guide](transport-guide.md) | Transport layer configuration |
+| [Testing Guide](testing-guide.md) | How to test your MCP server and extensions |
 
 
 ## MCP Protocol Version
 
 This implementation targets **MCP protocol version `2025-03-26`**.
 
-## License
-
-## Links
+## Ressources
 
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/)
 - [Pharo Smalltalk](https://pharo.org/)
