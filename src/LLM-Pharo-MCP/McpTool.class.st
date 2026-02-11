@@ -80,6 +80,12 @@ McpTool >> handler: anObject [
 ]
 
 { #category : 'accessing' }
+McpTool >> inputSchema [
+
+	^ inputSchema
+]
+
+{ #category : 'accessing' }
 McpTool >> inputSchema: anObject [
 
 	inputSchema := anObject
