@@ -17,7 +17,7 @@ server addTool: (McpTool
     required: #( 'expression' ))
   handler: [ :args |
     | result |
-    result := Compiler evaluate: (args at: 'expression').
+    result := OpalCompiler evaluate: (args at: 'expression').
     McpToolResult successText: result printString ]).
 ```
 
