@@ -36,7 +36,21 @@ McpInMemoryTransport >> lastSentParsed [
 	| last |
 	last := self lastSentMessage.
 	last ifNil: [ ^ nil ].
-	^ STONJSON fromString: last
+	^ self normalizeParsedObject: (STONJSON fromString: last)
+]
+
+{ #category : 'initialization' }
+McpInMemoryTransport >> normalizeParsedObject: anObject [
+
+	(anObject isKindOf: Dictionary) ifTrue: [
+		| ordered |
+		ordered := OrderedDictionary new.
+		anObject keysAndValuesDo: [ :key :value |
+			ordered at: key put: (self normalizeParsedObject: value) ].
+		^ ordered ].
+	(anObject isArray) ifTrue: [
+		^ anObject collect: [ :each | self normalizeParsedObject: each ] ].
+	^ anObject
 ]
 
 { #category : 'initialization' }
