@@ -1,3 +1,7 @@
+"
+I represent a prompt definition exposed by the MCP server.
+
+"
 Class {
 	#name : 'McpPrompt',
 	#superclass : 'Object',

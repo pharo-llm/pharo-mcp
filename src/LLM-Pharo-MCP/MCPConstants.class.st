@@ -1,3 +1,7 @@
+"
+I hold shared constants used by the MCP implementation.
+
+"
 Class {
 	#name : 'MCPConstants',
 	#superclass : 'SharedPool',

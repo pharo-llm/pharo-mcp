@@ -1,3 +1,7 @@
+"
+I represent a JSON-RPC error object.
+
+"
 Class {
 	#name : 'McpJsonRpcError',
 	#superclass : 'MCPJSONRPCMessage',

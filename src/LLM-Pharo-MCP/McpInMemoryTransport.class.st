@@ -1,9 +1,12 @@
+"
+I provide an in-memory transport for testing and local use.
+
+"
 Class {
 	#name : 'McpInMemoryTransport',
 	#superclass : 'MCPTransport',
 	#instVars : [
-		'sentMessages',
-		'running'
+		'sentMessages'
 	],
 	#category : 'LLM-Pharo-MCP-Transport',
 	#package : 'LLM-Pharo-MCP',

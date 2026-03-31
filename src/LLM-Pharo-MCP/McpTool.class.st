@@ -1,3 +1,7 @@
+"
+I represent a callable tool exposed by the MCP server.
+
+"
 Class {
 	#name : 'McpTool',
 	#superclass : 'Object',

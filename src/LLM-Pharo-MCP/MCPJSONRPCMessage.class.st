@@ -1,3 +1,7 @@
+"
+I am the base model for JSON-RPC messages.
+
+"
 Class {
 	#name : 'MCPJSONRPCMessage',
 	#superclass : 'Object',

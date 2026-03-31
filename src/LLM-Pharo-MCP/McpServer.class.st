@@ -1,3 +1,7 @@
+"
+I coordinate MCP requests, handlers, and registered capabilities.
+
+"
 Class {
 	#name : 'McpServer',
 	#superclass : 'Object',

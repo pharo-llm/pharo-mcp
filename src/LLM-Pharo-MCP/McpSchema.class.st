@@ -1,3 +1,7 @@
+"
+I represent a JSON schema used by MCP objects.
+
+"
 Class {
 	#name : 'McpSchema',
 	#superclass : 'Object',

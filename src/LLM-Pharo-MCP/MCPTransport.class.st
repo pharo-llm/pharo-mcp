@@ -1,13 +1,23 @@
+"
+I define the transport API used by the MCP server.
+
+"
 Class {
 	#name : 'MCPTransport',
 	#superclass : 'Object',
 	#instVars : [
-		'messageHandler'
+		'messageHandler',
+		'running'
 	],
 	#category : 'LLM-Pharo-MCP-Transport',
 	#package : 'LLM-Pharo-MCP',
 	#tag : 'Transport'
 }
+
+{ #category : 'as yet unclassified' }
+MCPTransport >> isRunning [
+	^ self subclassResponsibility
+]
 
 { #category : 'accessing' }
 MCPTransport >> messageHandler [

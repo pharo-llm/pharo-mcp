@@ -1,3 +1,7 @@
+"
+I describe which MCP features the server supports.
+
+"
 Class {
 	#name : 'McpServerCapabilities',
 	#superclass : 'Object',

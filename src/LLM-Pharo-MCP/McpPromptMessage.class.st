@@ -1,3 +1,7 @@
+"
+I represent one message produced by a prompt.
+
+"
 Class {
 	#name : 'McpPromptMessage',
 	#superclass : 'Object',

@@ -1,10 +1,13 @@
+"
+I implement MCP transport over standard input and output.
+
+"
 Class {
 	#name : 'McpStdioTransport',
 	#superclass : 'MCPTransport',
 	#instVars : [
 		'inputStream',
 		'outputStream',
-		'running',
 		'readProcess'
 	],
 	#category : 'LLM-Pharo-MCP-Transport',

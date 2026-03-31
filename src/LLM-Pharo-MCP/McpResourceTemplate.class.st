@@ -1,3 +1,7 @@
+"
+I represent a URI template for dynamic resources.
+
+"
 Class {
 	#name : 'McpResourceTemplate',
 	#superclass : 'Object',

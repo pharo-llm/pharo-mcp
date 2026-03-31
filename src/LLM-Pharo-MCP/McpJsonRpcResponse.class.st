@@ -1,3 +1,7 @@
+"
+I represent a JSON-RPC response message.
+
+"
 Class {
 	#name : 'McpJsonRpcResponse',
 	#superclass : 'MCPJSONRPCMessage',

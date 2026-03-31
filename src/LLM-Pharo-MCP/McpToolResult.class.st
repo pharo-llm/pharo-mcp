@@ -1,3 +1,7 @@
+"
+I represent the result returned from a tool call.
+
+"
 Class {
 	#name : 'McpToolResult',
 	#superclass : 'Object',

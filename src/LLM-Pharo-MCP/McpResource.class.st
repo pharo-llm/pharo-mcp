@@ -1,3 +1,7 @@
+"
+I represent a resource that can be listed and read.
+
+"
 Class {
 	#name : 'McpResource',
 	#superclass : 'Object',

@@ -1,3 +1,7 @@
+"
+I describe an argument accepted by a prompt.
+
+"
 Class {
 	#name : 'McpPromptArgument',
 	#superclass : 'Object',

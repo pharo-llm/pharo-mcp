@@ -1,3 +1,7 @@
+"
+I represent one content item returned by resources or prompts.
+
+"
 Class {
 	#name : 'McpContentItem',
 	#superclass : 'Object',
