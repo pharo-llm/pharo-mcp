@@ -25,7 +25,7 @@ tool := McpTool
     required: #( 'expression' ))
   handler: [ :args |
     | result |
-    result := Compiler evaluate: (args at: 'expression').
+    result := OpalCompiler evaluate: (args at: 'expression').
     McpToolResult successText: result printString ].
 ```
 
@@ -60,9 +60,7 @@ server addTool: tool.
 You can register multiple tools:
 
 ```smalltalk
-server addTool: evaluateTool.
-server addTool: inspectTool.
-server addTool: searchTool.
+server addTool: tool.
 ```
 
 ## Removing Tools
@@ -141,7 +139,7 @@ tool := McpTool
   description: 'Might fail'
   handler: [ :args |
     "If this raises an error, it becomes McpToolResult errorText: ex messageText"
-    (Compiler evaluate: (args at: 'code')).
+    (OpalCompiler evaluate: (args at: 'code')).
     McpToolResult successText: 'Done' ].
 ```
 
@@ -157,7 +155,7 @@ server addTool: (McpTool
     required: #( 'package' ))
   handler: [ :args |
     | pkg classes |
-    pkg := RPackageOrganizer default
+    pkg := PackageOrganizer default
       packageNamed: (args at: 'package')
       ifAbsent: [ ^ McpToolResult errorText: 'Package not found' ].
     classes := pkg definedClasses collect: #name.

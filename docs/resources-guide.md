@@ -42,7 +42,7 @@ resource := McpResource
   description: 'List of all loaded packages'
   handler: [
     | names |
-    names := RPackageOrganizer default packages collect: #name.
+    names := PackageOrganizer default packages collect: #name.
     { McpContentItem text: (String lf join: names sorted) } ].
 ```
 

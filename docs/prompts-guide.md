@@ -81,13 +81,13 @@ The `McpPromptMessage` class provides convenience constructors:
 
 ```smalltalk
 "User message with text"
-McpPromptMessage user: 'Please analyze this code.'
+McpPromptMessage user: 'Please analyze this code.'.
 "Assistant message with text"
-McpPromptMessage assistant: 'I will analyze the code for potential issues.'
+McpPromptMessage assistant: 'I will analyze the code for potential issues.'.
 "Custom role with image content"
 McpPromptMessage
   role: 'user'
-  content: (McpContentItem image: base64Data mimeType: 'image/png')
+  content: (McpContentItem image: base64Data mimeType: 'image/png').
 ```
 
 ## Multi-Turn Prompts
