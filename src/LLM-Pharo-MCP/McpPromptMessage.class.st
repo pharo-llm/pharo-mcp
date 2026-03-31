@@ -13,7 +13,7 @@ Class {
 { #category : 'instance creation' }
 McpPromptMessage class >> assistant: aString [
 
-	^ self role: 'assistant' content: (MCPContentItem text: aString)
+	^ self role: 'assistant' content: (McpContentItem text: aString)
 ]
 
 { #category : 'instance creation' }
@@ -28,7 +28,7 @@ McpPromptMessage class >> role: aRole content: aContentItem [
 { #category : 'instance creation' }
 McpPromptMessage class >> user: aString [
 
-	^ self role: 'user' content: (MCPContentItem text: aString)
+	^ self role: 'user' content: (McpContentItem text: aString)
 ]
 
 { #category : 'converting' }

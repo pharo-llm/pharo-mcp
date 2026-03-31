@@ -22,7 +22,7 @@ McpToolResult class >> error: contentItems [
 { #category : 'as yet unclassified' }
 McpToolResult class >> errorText: aString [
 
-	^ self error: { MCPContentItem text: aString }
+	^ self error: { McpContentItem text: aString }
 ]
 
 { #category : 'instance creation' }
@@ -37,7 +37,7 @@ McpToolResult class >> success: contentItems [
 { #category : 'as yet unclassified' }
 McpToolResult class >> successText: aString [
 
-	^ self success: { MCPContentItem text: aString }
+	^ self success: { McpContentItem text: aString }
 ]
 
 { #category : 'converting' }

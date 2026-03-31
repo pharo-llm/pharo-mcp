@@ -29,7 +29,7 @@ McpPromptMessageTest >> testAssistantMessage [
 McpPromptMessageTest >> testCustomRoleAndContent [
 
 	| msg content |
-	content := MCPContentItem image: 'base64' mimeType: 'image/png'.
+	content := McpContentItem image: 'base64' mimeType: 'image/png'.
 	msg := McpPromptMessage role: 'user' content: content.
 	self assert: msg role equals: 'user'.
 	self assert: msg content isImage

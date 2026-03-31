@@ -68,7 +68,7 @@ McpServerTest >> testAddResource [
 		            uri: 'pharo://info'
 		            name: 'Info'
 		            description: 'System info'
-		            handler: [ { MCPContentItem text: 'info' } ].
+		            handler: [ { McpContentItem text: 'info' } ].
 	server addResource: resource.
 	self assert: server resources size equals: 1.
 	self assert: (server resourceAtUri: 'pharo://info') equals: resource
@@ -266,7 +266,7 @@ McpServerTest >> testRemoveResource [
 			 uri: 'pharo://info'
 			 name: 'Info'
 			 description: 'System info'
-			 handler: [ { MCPContentItem text: 'info' } ]).
+			 handler: [ { McpContentItem text: 'info' } ]).
 	server removeResource: 'pharo://info'.
 	self assert: server resources isEmpty
 ]
@@ -290,12 +290,12 @@ McpServerTest >> testResourcesList [
 			 uri: 'pharo://info'
 			 name: 'Info'
 			 description: 'System info'
-			 handler: [ { MCPContentItem text: 'info' } ]).
+			 handler: [ { McpContentItem text: 'info' } ]).
 	server addResource: (McpResource
 			 uri: 'pharo://version'
 			 name: 'Version'
 			 description: 'Pharo version'
-			 handler: [ { MCPContentItem text: '13' } ]).
+			 handler: [ { McpContentItem text: '13' } ]).
 	response := self sendRequest: 'resources/list' id: 20.
 	result := response at: 'result'.
 	self assert: (result at: 'resources') size equals: 2
@@ -318,7 +318,7 @@ McpServerTest >> testResourcesRead [
 			 uri: 'pharo://version'
 			 name: 'Version'
 			 description: 'Pharo version'
-			 handler: [ { MCPContentItem text: 'Pharo 13.0' } ]).
+			 handler: [ { McpContentItem text: 'Pharo 13.0' } ]).
 	response := self sendRequest: 'resources/read' id: 22 params: (Dictionary new
 				         at: 'uri' put: 'pharo://version';
 				         yourself).
@@ -366,7 +366,7 @@ McpServerTest >> testResourcesReadViaTemplate [
 			 name: 'Class'
 			 description: 'Class details'
 			 handler: [ :params |
-				 { MCPContentItem text: 'Class: ' , (params at: 'className') } ]).
+				 { McpContentItem text: 'Class: ' , (params at: 'className') } ]).
 	response := self sendRequest: 'resources/read' id: 26 params: (Dictionary new
 				         at: 'uri' put: 'pharo://class/SmallInteger';
 				         yourself).

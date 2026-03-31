@@ -62,8 +62,8 @@ McpToolResultTest >> testSuccessWithMultipleContent [
 
 	| result items |
 	items := {
-		         MCPContentItem text: 'Line 1'.
-		         MCPContentItem text: 'Line 2' }.
+		         McpContentItem text: 'Line 1'.
+		         McpContentItem text: 'Line 2' }.
 	result := McpToolResult success: items.
 	self deny: result isError.
 	self assert: result content size equals: 2

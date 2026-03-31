@@ -46,7 +46,7 @@ McpResourceTest >> testCreateWithAllFields [
 		            name: 'System Info'
 		            description: 'Pharo system information'
 		            mimeType: 'application/json'
-		            handler: [ { MCPContentItem text: '{}' } ].
+		            handler: [ { McpContentItem text: '{}' } ].
 	self assert: resource uri equals: 'pharo://system/info'.
 	self assert: resource name equals: 'System Info'.
 	self assert: resource description equals: 'Pharo system information'.
@@ -61,7 +61,7 @@ McpResourceTest >> testCreateWithDefaults [
 		            uri: 'pharo://test'
 		            name: 'Test'
 		            description: 'A test resource'
-		            handler: [ { MCPContentItem text: 'test' } ].
+		            handler: [ { McpContentItem text: 'test' } ].
 	self assert: resource mimeType equals: 'text/plain'
 ]
 
@@ -73,7 +73,7 @@ McpResourceTest >> testRead [
 		            uri: 'pharo://version'
 		            name: 'Version'
 		            description: 'Pharo version'
-		            handler: [ { MCPContentItem text: 'Pharo 13' } ].
+		            handler: [ { McpContentItem text: 'Pharo 13' } ].
 	contents := resource read.
 	self assert: contents size equals: 1.
 	self assert: contents first text equals: 'Pharo 13'

@@ -9,7 +9,7 @@ Class {
 McpContentItemTest >> testImageContent [
 
 	| item |
-	item := MCPContentItem image: 'base64data==' mimeType: 'image/png'.
+	item := McpContentItem image: 'base64data==' mimeType: 'image/png'.
 	self assert: item type equals: 'image'.
 	self assert: item data equals: 'base64data=='.
 	self assert: item mimeType equals: 'image/png'.
@@ -21,7 +21,7 @@ McpContentItemTest >> testImageContent [
 McpContentItemTest >> testImageContentAsDictionary [
 
 	| item dict |
-	item := MCPContentItem image: 'abc123' mimeType: 'image/jpeg'.
+	item := McpContentItem image: 'abc123' mimeType: 'image/jpeg'.
 	dict := item asDictionary.
 	self assert: (dict at: 'type') equals: 'image'.
 	self assert: (dict at: 'data') equals: 'abc123'.
@@ -32,7 +32,7 @@ McpContentItemTest >> testImageContentAsDictionary [
 McpContentItemTest >> testResourceContent [
 
 	| item |
-	item := MCPContentItem resource: 'file://test.txt' text: 'content' mimeType: 'text/plain'.
+	item := McpContentItem resource: 'file://test.txt' text: 'content' mimeType: 'text/plain'.
 	self assert: item type equals: 'resource'.
 	self assert: item uri equals: 'file://test.txt'.
 	self assert: item text equals: 'content'.
@@ -44,7 +44,7 @@ McpContentItemTest >> testResourceContent [
 McpContentItemTest >> testResourceContentAsDictionary [
 
 	| item dict resource |
-	item := MCPContentItem
+	item := McpContentItem
 		        resource: 'pharo://class/Object'
 		        text: 'Object class source'
 		        mimeType: 'text/plain'.
@@ -60,7 +60,7 @@ McpContentItemTest >> testResourceContentAsDictionary [
 McpContentItemTest >> testTextContent [
 
 	| item |
-	item := MCPContentItem text: 'Hello world'.
+	item := McpContentItem text: 'Hello world'.
 	self assert: item type equals: 'text'.
 	self assert: item text equals: 'Hello world'.
 	self assert: item isText.
@@ -72,7 +72,7 @@ McpContentItemTest >> testTextContent [
 McpContentItemTest >> testTextContentAsDictionary [
 
 	| item dict |
-	item := MCPContentItem text: 'Hello'.
+	item := McpContentItem text: 'Hello'.
 	dict := item asDictionary.
 	self assert: (dict at: 'type') equals: 'text'.
 	self assert: (dict at: 'text') equals: 'Hello'.

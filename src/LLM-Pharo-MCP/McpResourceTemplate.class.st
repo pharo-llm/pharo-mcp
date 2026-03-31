@@ -135,11 +135,11 @@ McpResourceTemplate >> readWithUri: aUri [
 	| params |
 	params := self extractParams: aUri.
 	params ifNil: [
-		^ { MCPContentItem text: 'URI does not match template' } ].
+		^ { McpContentItem text: 'URI does not match template' } ].
 	[ ^ handler value: params ]
 		on: Error
 		do: [ :ex |
-			^ { MCPContentItem text:
+			^ { McpContentItem text:
 					  'Error reading resource: ' , ex messageText } ]
 ]
 

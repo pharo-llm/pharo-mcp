@@ -31,7 +31,7 @@ McpResourceTemplateTest >> testCreateWithAllFields [
 		            name: 'Class Details'
 		            description: 'Get details for a class'
 		            mimeType: 'application/json'
-		            handler: [ :params | { MCPContentItem text: (params at: 'className') } ].
+		            handler: [ :params | { McpContentItem text: (params at: 'className') } ].
 	self assert: template uriTemplate equals: 'pharo://class/{className}'.
 	self assert: template name equals: 'Class Details'.
 	self assert: template description equals: 'Get details for a class'.
@@ -46,7 +46,7 @@ McpResourceTemplateTest >> testCreateWithDefaults [
 		            uriTemplate: 'pharo://method/{className}/{selector}'
 		            name: 'Method Source'
 		            description: 'Get method source'
-		            handler: [ :params | { MCPContentItem text: 'source' } ].
+		            handler: [ :params | { McpContentItem text: 'source' } ].
 	self assert: template mimeType equals: 'text/plain'
 ]
 
@@ -112,7 +112,7 @@ McpResourceTemplateTest >> testReadWithUri [
 		            name: 'Class'
 		            description: 'Get class'
 		            handler: [ :params |
-			            { MCPContentItem text: 'Class: ' , (params at: 'className') } ].
+			            { McpContentItem text: 'Class: ' , (params at: 'className') } ].
 	contents := template readWithUri: 'pharo://class/SmallInteger'.
 	self assert: contents size equals: 1.
 	self assert: contents first text equals: 'Class: SmallInteger'
@@ -140,7 +140,7 @@ McpResourceTemplateTest >> testReadWithUriNoMatch [
 		            uriTemplate: 'pharo://class/{className}'
 		            name: 'Class'
 		            description: 'Get class'
-		            handler: [ :params | { MCPContentItem text: 'ok' } ].
+		            handler: [ :params | { McpContentItem text: 'ok' } ].
 	contents := template readWithUri: 'pharo://wrong/path/here'.
 	self assert: contents size equals: 1.
 	self assert: (contents first text includesSubstring: 'does not match')

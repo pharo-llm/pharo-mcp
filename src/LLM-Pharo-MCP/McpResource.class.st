@@ -103,7 +103,7 @@ McpResource >> read [
 	[ ^ handler value ]
 		on: Error
 		do: [ :ex |
-			^ { MCPContentItem text: 'Error reading resource: ' , ex messageText } ]
+			^ { McpContentItem text: 'Error reading resource: ' , ex messageText } ]
 ]
 
 { #category : 'accessing' }

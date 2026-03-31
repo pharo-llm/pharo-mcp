@@ -1,5 +1,5 @@
 Class {
-	#name : 'MCPContentItem',
+	#name : 'McpContentItem',
 	#superclass : 'Object',
 	#instVars : [
 		'type',
@@ -14,7 +14,7 @@ Class {
 }
 
 { #category : 'accessing' }
-MCPContentItem class >> image: base64Data mimeType: aMimeType [
+McpContentItem class >> image: base64Data mimeType: aMimeType [
 
 	^ self new
 		  type: 'image';
@@ -24,7 +24,7 @@ MCPContentItem class >> image: base64Data mimeType: aMimeType [
 ]
 
 { #category : 'accessing' }
-MCPContentItem class >> resource: aUri text: aString mimeType: aMimeType [
+McpContentItem class >> resource: aUri text: aString mimeType: aMimeType [
 
 	^ self new
 		  type: 'resource';
@@ -35,7 +35,7 @@ MCPContentItem class >> resource: aUri text: aString mimeType: aMimeType [
 ]
 
 { #category : 'accessing' }
-MCPContentItem class >> text: aString [
+McpContentItem class >> text: aString [
 
 	^ self new
 		  type: 'text';
@@ -44,7 +44,7 @@ MCPContentItem class >> text: aString [
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> asDictionary [
+McpContentItem >> asDictionary [
 
 	| dict |
 	dict := OrderedDictionary new.
@@ -64,79 +64,79 @@ MCPContentItem >> asDictionary [
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> data [
+McpContentItem >> data [
 
 	^ data
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> data: anObject [
+McpContentItem >> data: anObject [
 
 	data := anObject
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> isImage [
+McpContentItem >> isImage [
 
 	^ type = 'image'
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> isResource [
+McpContentItem >> isResource [
 
 	^ type = 'resource'
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> isText [
+McpContentItem >> isText [
 
 	^ type = 'text'
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> mimeType [
+McpContentItem >> mimeType [
 
 	^ mimeType
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> mimeType: anObject [
+McpContentItem >> mimeType: anObject [
 
 	mimeType := anObject
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> text [
+McpContentItem >> text [
 
 	^ text
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> text: anObject [
+McpContentItem >> text: anObject [
 
 	text := anObject
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> type [
+McpContentItem >> type [
 
 	^ type
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> type: anObject [
+McpContentItem >> type: anObject [
 
 	type := anObject
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> uri [
+McpContentItem >> uri [
 
 	^ uri
 ]
 
 { #category : 'accessing' }
-MCPContentItem >> uri: anObject [
+McpContentItem >> uri: anObject [
 
 	uri := anObject
 ]
