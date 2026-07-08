@@ -406,3 +406,6 @@ Extends `McpTransport` for testing.
 |--------|-------------|
 | `code` / `message` / `data` | Error fields |
 | Factory methods | `parseError`, `invalidRequest`, `methodNotFound`, `methodNotFound:`, `invalidParams`, `invalidParams:`, `internalError`, `internalError:` |
+
+
+
